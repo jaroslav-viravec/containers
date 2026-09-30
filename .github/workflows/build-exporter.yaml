@@ -1,19 +1,5 @@
 name: BUILD EXPORTER
 
-# Build OUR OWN Redis/Valkey metrics exporter image from Bitnami's build scripts
-# (this fork of bitnami/containers) and push it to ghcr.io/<owner>/redis-exporter.
-#
-# Option 3 (issue #2030): we do NOT compile anything. Bitnami's build downloads a
-# prebuilt binary tarball from downloads.bitnami.com/files/stacksmith (still
-# served post Aug-2025 deprecation). This workflow builds our own Dockerfile
-# (docker/from-bitnami/Dockerfile.exporter) against the vendored build context
-# bitnami/redis-exporter/<major>/debian-12 (prebuildfs + checksums). This removes
-# the last Bitnami-registry dependency (the chart's default redis-exporter image).
-#
-# NOTE: the vendored Dockerfile currently targets redis-exporter 1.92.1. To build
-# another version, update the component version in
-# docker/from-bitnami/Dockerfile.exporter and the exporter_version input below.
-
 on:
   workflow_dispatch:
     inputs:

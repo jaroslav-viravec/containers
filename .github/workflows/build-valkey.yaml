@@ -1,19 +1,5 @@
 name: BUILD VALKEY
 
-# Build OUR OWN Valkey image from Bitnami's build scripts (this fork of
-# bitnami/containers) and push it to ghcr.io/<owner>/valkey.
-#
-# Option 3 (issue #2030): we do NOT compile Valkey. Bitnami's build downloads a
-# prebuilt binary tarball from downloads.bitnami.com/files/stacksmith (still
-# served post Aug-2025 deprecation). This workflow builds our own Dockerfile
-# (docker/from-bitnami/Dockerfile.valkey) against the vendored build context
-# bitnami/valkey/<major.minor>/debian-12 (prebuildfs + rootfs + checksums), which
-# is what makes the image satisfy the Bitnami chart / valkey-operator contract.
-#
-# NOTE: the vendored Dockerfile currently targets Valkey 9.1.2. To build another
-# version, add the matching bitnami/valkey/<x.y>/debian-12 dir and update the
-# component versions in docker/from-bitnami/Dockerfile.valkey.
-
 on:
   workflow_dispatch:
     inputs:
